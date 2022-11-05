@@ -3,13 +3,13 @@
     <div class="content">
       <v-navigation></v-navigation>
       <div class="v-main-header__head">
-        <div class="container">
+        <!-- <div class="container">
           <div class="head_row">
             <div class="head_title">
-              <!--  bloom <br> with grace. -->
+                //bloom <br> with grace. 
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="v-main-header__about">
         <div class="container">
@@ -112,14 +112,16 @@ export default {
 
   &__head {
     background: url("../assets/images/head2.jpg") no-repeat;
-    background-size: 100%;
+    //background-size: 100%;
+    background-size: cover;
+    height: 700px;
     //background-color: rgb(94, 186, 155);
-    .head_row {
-      display: flex;
+   /* .head_row {
+      //display: flex;
       //justify-content: center;
       // margin-left: 250px;
-      align-items: center;
-      height: 800px;
+      //align-items: center;
+      //height: 800px;
     }
     .head_title {
       margin: 150px 0px 0 200px;
@@ -134,7 +136,7 @@ export default {
       /*background-color: #FF13A7;
                 padding: 5px 20px;
                 border-radius: 16px;*/
-    }
+    //}
   }
 
   &__about {

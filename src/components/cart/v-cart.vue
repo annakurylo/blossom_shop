@@ -6,9 +6,12 @@
                     Back to Catalog
                 </div>
             </router-link>
-            <h1>Корзина</h1>
-            <p v-if="!CART.length"> Cart is empty...</p>
-            <v-cart-item
+            <div class="v-cart_text">
+                <div class="title">Корзина</div>
+                <p class="info" v-if="!CART.length"> Cart is empty...</p>
+            </div>
+            <div class="v-cart_list">
+                <v-cart-item
                 v-for="item, index in CART"
                 :key="item.article"
                 :cart_item_data = "item"
@@ -16,6 +19,7 @@
                 @increment='increment(index)'
                 @decrement='decrement(index)'
             />
+            </div>
             <div class="v-cart__total">
                 <p class="total-name">Cost:</p>
                 <p class="total-cost">{{cartTotalCost}}</p>
@@ -86,10 +90,32 @@
         
     }
     .v-cart{
+        padding: 50px 20px 50px 20px;
+        /*div:not(:last-child) {
+            margin-bottom: 20px;
+          }*/
+        &_text{
+            margin-bottom: 20px;
+            .title {
+                font-size: 32px;
+                color: #ff13a7;
+                font-weight: 700;
+                font-family: Snell Roundhand, cursive;
+            }
+            .info {
+            }
+        }
+        .v-cart_list{
+            display: flex;
+            flex-direction: column;
+
+        }
         
         /*-width: 1400px;
         margin: 0 auto;*/
         //padding-top: 110px;
+        //margin-top: $header-height;
+        //padding: 50px 20px 50px 20px;
         &__link-to-catalog{
             position:absolute;
             top: 85px;

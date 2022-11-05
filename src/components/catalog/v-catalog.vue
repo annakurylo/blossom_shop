@@ -164,8 +164,10 @@ export default {
   padding: 50px 20px 50px 20px;
 
   &__title {
-    font-size:36px;
-    color:#ff13a7;
+    font-size: 32px;
+    color: #ff13a7;
+    font-weight: 700;
+    font-family: Snell Roundhand, cursive;
   }
   /*max-width: 1400px;
         margin: 0 auto;

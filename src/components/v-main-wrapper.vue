@@ -58,6 +58,7 @@ export default {
 
   &__container {
     margin-top: $header-height;
+    //padding: 50px 20px 50px 20px;
   }
 }
 </style>

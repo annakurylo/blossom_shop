@@ -48,6 +48,7 @@
         top: 0;
         left: 0;
         z-index: 25;
+        height: 0px;
         height: $header-height;
 
         .container{

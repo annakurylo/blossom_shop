@@ -21,6 +21,7 @@
         </div>
         <button 
         @click = "deleteFromCart"
+        class="btn"
         >Delete</button>
     </div>
 </template>
@@ -70,6 +71,7 @@
 
 <style lang="scss">
     @import '@/assets/styles/variables.scss';
+    @import "@/assets/styles/styles.scss";
     .v-cart_item{
         display: flex;
         flex-wrap: nowrap;
@@ -85,7 +87,7 @@
     }
     .v-cart-item_quantity__crement{
         padding: 8px 16px;
-        background: #FF13A7;
+        background: black;
         color: white;
         border: 0;
         border-radius: 4px;
