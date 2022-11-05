@@ -1,0 +1,120 @@
+<template>
+    <div class="container">
+        <div class="v-cart">
+            <router-link :to="{name: 'catalog'}">
+                <div class="v-cart__link-to-catalog">
+                    Back to Catalog
+                </div>
+            </router-link>
+            <h1>Корзина</h1>
+            <p v-if="!CART.length"> Cart is empty...</p>
+            <v-cart-item
+                v-for="item, index in CART"
+                :key="item.article"
+                :cart_item_data = "item"
+                @deleteFromCart = deleteFromCart(index)
+                @increment='increment(index)'
+                @decrement='decrement(index)'
+            />
+            <div class="v-cart__total">
+                <p class="total-name">Cost:</p>
+                <p class="total-cost">{{cartTotalCost}}</p>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<script>
+    import vCartItem from './v-cart-item'
+    import { mapActions, mapGetters } from 'vuex'
+    export default{
+        name: 'v-cart',
+        components: {vCartItem},
+        props:{
+            cart_data: {
+                type: Object,
+                default(){
+                    return {}
+                }
+            }
+        },
+        data(){
+            return{
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'CART'
+            ]),
+            cartTotalCost(){
+                let result =[];
+                if(this.CART.length){
+                    for(let item of this.CART){
+                        result.push(item.price*item.quantity);
+                    }
+                    result = result.reduce(function(sum, el){
+                        return sum+el
+                    })
+                    return result;
+                }else return 0;
+            }
+        },
+        methods:{
+            ...mapActions([
+                'DELETE_FROM_CART',
+                'INCREMENT_CART_ITEM',
+                'DECREMENT_CART_ITEM',
+            ]),
+            deleteFromCart(index){
+                this.DELETE_FROM_CART(index)
+            },
+            increment(index){
+                this.INCREMENT_CART_ITEM(index)
+            },
+            decrement(index){
+                this.DECREMENT_CART_ITEM(index)
+            }
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+    @import '@/assets/styles/variables.scss';
+    
+    .container{
+        
+    }
+    .v-cart{
+        
+        /*-width: 1400px;
+        margin: 0 auto;*/
+        //padding-top: 110px;
+        &__link-to-catalog{
+            position:absolute;
+            top: 85px;
+            right: 10px;
+            padding: 16px;
+            box-shadow: 0 0 8px 0 #e0e0e0;
+            border: 2px solid #e0e0e0;
+            background: #FF13A7;
+            color: white;
+        }
+        &__total{
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 32px;
+            display: flex;
+            justify-content: center;
+            color: white;
+            background-color: #000000;
+            .total-name{
+                margin-right: 16px;
+            }
+        }
+    
+    }
+
+</style>
