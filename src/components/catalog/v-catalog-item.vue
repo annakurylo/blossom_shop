@@ -16,7 +16,7 @@
     </v-popup>
 
     <!-- <img class="v-catalog-item__image" :src="imgLink" :alt="img" /> -->
-    <!-- <img class="v-catalog-item__image" :src="imgLink" :alt="img" /> -->
+    <img class="v-catalog-item__image" :src="imgLink" :alt="img" />
     <p class="v-catalog-item__name">{{ product_data.name }}</p>
     <p class="v-catalog-item__price">{{ $filters.toFix( product_data.price) }}</p>
     <div class="btnItem">
