@@ -97,7 +97,7 @@
     .v-popup{
         padding: 16px;
         position: fixed;
-        top: 50px;
+        top: 100px;
         width: 400px;
         background: #ffffff;
         box-shadow: 0 0 8px 0 #e0e0e0;

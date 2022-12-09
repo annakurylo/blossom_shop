@@ -7,7 +7,7 @@
       :popupTitle="product_data.name"
       @rightBtnAction="rightBtnAction"
     >
-      <img class="v-catalog-item__image" :src="imgLink" :alt="img" />
+      <!-- <img class="v-catalog-item__image" :src="imgLink" :alt="img" /> -->
       <div class="item">
         <p class="v-catalog-item__name">{{ product_data.name }}</p>
         <p class="v-catalog-item__price">{{ $filters.toFix( product_data.price) }}</p>
@@ -15,7 +15,8 @@
       </div>
     </v-popup>
 
-    <img class="v-catalog-item__image" :src="imgLink" :alt="img" />
+    <!-- <img class="v-catalog-item__image" :src="imgLink" :alt="img" /> -->
+    <!-- <img class="v-catalog-item__image" :src="imgLink" :alt="img" /> -->
     <p class="v-catalog-item__name">{{ product_data.name }}</p>
     <p class="v-catalog-item__price">{{ $filters.toFix( product_data.price) }}</p>
     <div class="btnItem">
@@ -51,9 +52,13 @@ export default {
     };
   },
   computed: {
+    // imgLink: function () {
+    //   const fileName = this.product_data.image;
+    //   return require(`../../assets/images/${fileName}`);
+    // },
     imgLink: function () {
       const fileName = this.product_data.image;
-      return require(`../../assets/images/${fileName}`);
+      return require(`../../../server/static/${fileName}`);
     },
     toFix() {
       return (value) => {
