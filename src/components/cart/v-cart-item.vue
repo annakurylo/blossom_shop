@@ -47,7 +47,9 @@
         computed: {
             imgLink: function () {
                 const fileName = this.cart_item_data.image;
-                return require(`../../assets/images/${fileName}`);
+                return require(`../../../server/static/${fileName}`);
+
+                // return require(`../../../server/static/${fileName}`);
             }
         },
         mounted(){
@@ -84,6 +86,7 @@
     }
     .v-cart-item__image{
         max-width: 50px;
+        height: 70px;
     }
     .v-cart-item_quantity__crement{
         padding: 8px 16px;

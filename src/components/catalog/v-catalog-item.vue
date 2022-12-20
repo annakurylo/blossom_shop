@@ -8,15 +8,16 @@
       @rightBtnAction="rightBtnAction"
     >
       <!-- <img class="v-catalog-item__image" :src="imgLink" :alt="img" /> -->
+      <img class="v-catalog-item__image" :src="imgLink" :alt="img" />
       <div class="item">
         <p class="v-catalog-item__name">{{ product_data.name }}</p>
         <p class="v-catalog-item__price">{{ $filters.toFix( product_data.price) }}</p>
-        <p class="v-catalog-item__price">{{ product_data.category }}</p>
+        <p class="v-catalog-item__price">{{ product_data.category.category }}</p>
       </div>
     </v-popup>
 
     <!-- <img class="v-catalog-item__image" :src="imgLink" :alt="img" /> -->
-    <!-- <img class="v-catalog-item__image" :src="imgLink" :alt="img" /> -->
+    <img class="v-catalog-item__image" :src="imgLink" :alt="img" />
     <p class="v-catalog-item__name">{{ product_data.name }}</p>
     <p class="v-catalog-item__price">{{ $filters.toFix( product_data.price) }}</p>
     <div class="btnItem">
@@ -58,7 +59,8 @@ export default {
     // },
     imgLink: function () {
       const fileName = this.product_data.image;
-      return require(`../../../server/static/${fileName}`);
+      return require(`../../../server/static/${fileName}`)
+      //return require(`../../../server/static/${fileName}`);
     },
     toFix() {
       return (value) => {
@@ -96,6 +98,7 @@ export default {
   box-shadow: 0 0 8px 0 #e0e0e0;
   &__image {
     width: 250px;
+    height: 330px;
   }
   .btnItem {
     display: flex;

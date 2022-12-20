@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+//import Category from "./category.js";
 
 const Good = new mongoose.Schema({
     image: {type: String},
@@ -6,7 +7,10 @@ const Good = new mongoose.Schema({
     price: {type: Number},
     article: {type: String},
     available: {type: Boolean},
-    category: {type: String},
+    category: {
+        ref: 'Category',
+        type: mongoose.Schema.Types.ObjectId
+    },
     quantity: {type: Number}
 })
 

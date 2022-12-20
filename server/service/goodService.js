@@ -9,7 +9,7 @@ class GoodService{
     }
 
     async getAll(){
-        const good = await Good.find()
+        const good = await Good.find().populate('category')
         return good
     }
 

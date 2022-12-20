@@ -12,7 +12,8 @@ let store = new Vuex.Store({
         cart: [],
         isMobile: false,
         isDesktop: true,
-        searchProduct: ''
+        searchProduct: '',
+        userId : localStorage.getItem('userId')
     },
     mutations,
     actions,

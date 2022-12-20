@@ -118,9 +118,13 @@ export default {
       );
       if (category) {
         this.sortedProducts = this.sortedProducts.filter(
-          (item) => item.category === category.name
+          (item) => item.category.category === category.name
         );
         this.selected = category.name;
+        // this.sortedProducts = this.sortedProducts.filter(
+        //   (item) => item.category === category.name
+        // );
+        // this.selected = category.name;
       }
 
       /*this.sortedProducts = [];

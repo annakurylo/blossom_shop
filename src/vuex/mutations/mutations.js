@@ -5,6 +5,14 @@ export default {
     SET_PRODUCTS_IN_STATE: (state, products) => {
         state.products = products;
     },
+    LOGIN_USER: (state, userId) => {
+        localStorage.getItem('userId')
+        state.userId = userId
+    },
+    LOGOUT: (state) => {
+        localStorage.clear();
+        state.userId = null;
+    },
     SET_CART: (state, product) => {
         if(state.cart.length){
             let isProductExist = false;

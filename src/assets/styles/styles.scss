@@ -8,4 +8,8 @@
     border-radius: $radius;
     cursor: pointer;
 }
+.btn:active{
+    background: #b90175;
+    transition: all .3s linear;
+}
 
