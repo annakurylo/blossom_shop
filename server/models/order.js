@@ -10,7 +10,9 @@ const Order = new mongoose.Schema({
         ref: 'Good',
         type: mongoose.Schema.Types.ObjectId
     },
-    quantity: {type: Number}
+    quantity: {type: Number},
+    price: {type: Number},
+    date: {type: Date}
 })
 
 export default mongoose.model('Order', Order)

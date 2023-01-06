@@ -26,6 +26,7 @@
 
 import vNavigation from "../components/layouts/v-navigation.vue";
 
+
 export default {
   name: "v-main-wrapper",
   components: {

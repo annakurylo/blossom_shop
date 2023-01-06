@@ -32,7 +32,7 @@
 <script>
 import vCartItem from "./v-cart-item";
 import { mapActions, mapGetters, mapState } from "vuex";
-import axios from 'axios';
+import axios from "axios";
 export default {
   name: "v-cart",
   components: { vCartItem },
@@ -46,14 +46,12 @@ export default {
   },
   data() {
     return {
-        orderData: {
-
-        }
+      orderData: {},
     };
   },
   computed: {
     ...mapGetters(["CART"]),
-    ...mapState(['userId']),
+    ...mapState(["userId"]),
     cartTotalCost() {
       let result = [];
       if (this.CART.length) {
@@ -65,6 +63,9 @@ export default {
         });
         return result;
       } else return 0;
+    },
+    getPrice: function () {
+      return this.CART.price*this.CART.quantity
     },
   },
   methods: {
@@ -83,21 +84,28 @@ export default {
       this.DECREMENT_CART_ITEM(index);
     },
     async applyOrder() {
-        // this.CART.map((item) => {
-        //     console.log(item._id)
-        // })
-        
-        console.log(this.userId)
-        if(!this.userId){
-            return alert('Sign in to your account')
-        }
-        await Promise.all(this.CART.map(async(item) => {
-            const result = await axios.post("/order", {userId: this.userId, goodId: item._id, quantity: item.quantity});
-            console.log(result);
-            
-        }))
-        alert('Order accepted')
-    }
+      // this.CART.map((item) => {
+      //     console.log(item._id)
+      // })
+
+      console.log(this.userId);
+      if (!this.userId) {
+        return alert("Sign in to your account");
+      }
+      await Promise.all(
+        this.CART.map(async (item) => {
+          const result = await axios.post("/order", {
+            userId: this.userId,
+            goodId: item._id,
+            quantity: item.quantity,
+            price: item.price*item.quantity,
+            date: new Date()
+          });
+          console.log(result);
+        })
+      );
+      alert("Order accepted");
+    },
   },
 };
 </script>

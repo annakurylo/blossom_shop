@@ -1,8 +1,8 @@
 <template>
     <div class="v-header">
-        <router-link :to="{name: 'mainPage'}">
-            <img src="../../assets/images/logo.jpg" alt=""/>
-        </router-link>
+        <router-link :to="{ name: 'vMainHeader' }">
+            <img src="../../assets/images/logotype.jpg" alt="" />
+          </router-link>
 
         <div class="search-fieled">
             <input 
